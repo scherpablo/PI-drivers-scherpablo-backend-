@@ -1,5 +1,9 @@
 const { Router } = require("express");
 
+//USERS CONTROLLERS
+const login = require("../controllers/users/login");
+const postUsers = require("../controllers/users/postUsers");
+
 // DRIVERS CONTROLLERS
 const getDrivers = require("../controllers/drivers/getDrivers");
 const getDriverById = require("../controllers/drivers/getDriverById");
@@ -15,6 +19,10 @@ const updateTeamById = require("../controllers/teams/updateTeamById");
 const deleteTeamById = require("../controllers/teams/deleteTeamById");  
 
 const router = Router();
+
+//USERS ROUTES
+router.get("/login", login);
+router.post("/login", postUsers);
 
 // DRIVERS ROUTES
 router.get("/drivers", getDrivers);
