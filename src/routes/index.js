@@ -21,8 +21,8 @@ const deleteTeamById = require("../controllers/teams/deleteTeamById");
 const router = Router();
 
 //USERS ROUTES
-router.get("/login", login);
-router.post("/login", postUsers);
+router.post("/login", login);
+router.post("/register", postUsers);
 
 // DRIVERS ROUTES
 router.get("/drivers", getDrivers);
