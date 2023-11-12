@@ -23,6 +23,10 @@ const getDriverById = async (req, res) => {
 
     if (!data) return res.status(404).json({ error: "Driver no encontrado" });
 
+    if (!data.image.url){
+      data.image.url = "https://pbs.twimg.com/profile_images/594696416238395393/8LY_wYX7_400x400.jpg" ;
+    }
+
     return res.json(data);
   } catch (error) {
     console.error(error);

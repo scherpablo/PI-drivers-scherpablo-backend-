@@ -29,7 +29,7 @@ const getDrivers = async (req, res) => {
         `${urlApiRest}/drivers?name.forename=${queryName}`
       );
 
-      const apiData = data || [];
+      const apiData = data || []
 
       if (driversFromDb.length === 0 && apiData.length === 0) {
         return res.status(404).json({
