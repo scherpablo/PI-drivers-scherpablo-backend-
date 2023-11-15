@@ -31,18 +31,11 @@ const getDrivers = async (req, res) => {
 
       const apiData = data || []
 
-      if (driversFromDb.length === 0 && apiData.length === 0) {
-        return res.status(404).json({
-          message: "No se encontraron drivers con el nombre especificado",
-        });
-      }
-
       if (apiData.length > 0) {
         // const apiResults = apiData
         const apiResults = apiData.map((item) => {
           return {
             id: item.id,
-            number: item.number,
             name: { forename: item.name.forename, surname: item.name.surname  },
             dob: item.dob,
             nationality: item.nationality,
