@@ -12,7 +12,4 @@ describe('Testing Rutas API', () => {
     const response = await request(server).get('/drivers/2');
     expect(response.status).toBe(200);
   });
-
-
- 
 });
