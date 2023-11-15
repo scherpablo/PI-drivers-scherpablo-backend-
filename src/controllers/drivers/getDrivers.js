@@ -6,10 +6,6 @@ const { Op } = require("sequelize");
 dotenv.config();
 
 const urlApiRest = process.env.URL_API_REST;
-// const urlApiRender = process.env.URL_API_RENDER;
-// const useRenderApi = process.env.USE_RENDER_API === "true";
-// const baseUrl = useRenderApi ? urlApiRender : urlApiRest; 
-// const urlApi = process.env.URL_API_RENDER || process.env.URL_API_REST;
 
 const getDrivers = async (req, res) => {
   const { name } = req.query;
@@ -31,7 +27,6 @@ const getDrivers = async (req, res) => {
 
       const { data } = await axios(
         `${urlApiRest}/drivers?name.forename=${queryName}`
-        // `${baseUrl}/drivers?name.forename=${queryName}`
       );
 
       const apiData = data || []
@@ -67,7 +62,6 @@ const getDrivers = async (req, res) => {
       });
 
       const { data } = await axios(`${urlApiRest}/drivers`);
-      // const { data } = await axios(`${baseUrl}/drivers`);
 
       data.forEach((driver) => {
         if (!driver.image.url) {
