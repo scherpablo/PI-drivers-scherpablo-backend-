@@ -6,9 +6,9 @@ const { Op } = require("sequelize");
 dotenv.config();
 
 const urlApiRest = process.env.URL_API_REST;
-const urlApiRender = process.env.URL_API_RENDER;
-const useRenderApi = process.env.USE_RENDER_API === "true";
-const baseUrl = useRenderApi ? urlApiRender : urlApiRest; 
+// const urlApiRender = process.env.URL_API_RENDER;
+// const useRenderApi = process.env.USE_RENDER_API === "true";
+// const baseUrl = useRenderApi ? urlApiRender : urlApiRest; 
 // const urlApi = process.env.URL_API_RENDER || process.env.URL_API_REST;
 
 const getDrivers = async (req, res) => {
@@ -30,8 +30,8 @@ const getDrivers = async (req, res) => {
       });
 
       const { data } = await axios(
-        // `${urlApiRest}/drivers?name.forename=${queryName}`
-        `${baseUrl}/drivers?name.forename=${queryName}`
+        `${urlApiRest}/drivers?name.forename=${queryName}`
+        // `${baseUrl}/drivers?name.forename=${queryName}`
       );
 
       const apiData = data || []
@@ -66,8 +66,8 @@ const getDrivers = async (req, res) => {
         include: Teams,
       });
 
-      // const { data } = await axios(`${urlApiRest}/drivers`);
-      const { data } = await axios(`${baseUrl}/drivers`);
+      const { data } = await axios(`${urlApiRest}/drivers`);
+      // const { data } = await axios(`${baseUrl}/drivers`);
 
       data.forEach((driver) => {
         if (!driver.image.url) {
