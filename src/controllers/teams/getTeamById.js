@@ -1,3 +1,4 @@
+//MODELS
 const { Teams } = require ("../../db")
 
 const getTeamById = async (ree, res)=>{
