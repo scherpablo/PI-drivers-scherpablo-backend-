@@ -5,9 +5,9 @@ const UsersModel = require("./models/Users")
 const DriversModel = require("./models/Drivers")
 const TeamsModel = require("./models/Teams")
 
-const dbDeployUrl = process.env.DATABASE_DEPLOY_URL
+const dbDeployUrl = 
+process.env.DATABASE_DEPLOY_URL
 const dbLocalUrl = process.env.DATABASE_LOCAL_URL
-
 const sequelize = new Sequelize(dbDeployUrl || dbLocalUrl, {
   logging: false,
   native: false,
