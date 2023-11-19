@@ -37,12 +37,6 @@ const getTeams = async (req, res) => {
 
     const combinedTeams = [...teamsInDatabase, ...teamsFromAPIMapped];
 
-    if (teamsToSave.length > 0) {
-      await sequelize.transaction(async (t) => {
-        await Teams.bulkCreate(teamsFromAPIMapped, { transaction: t });
-      });
-    }
-
     return res.status(200).json(combinedTeams);
   } catch (error) {
     console.log(error);
